@@ -1,3 +1,5 @@
+# Merge Sort Algorithm
+
 def merge_sort(myList):
     if len(myList) <= 1:
         return myList
