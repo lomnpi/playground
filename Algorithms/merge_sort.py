@@ -1,5 +1,11 @@
-# Merge Sort Algorithm
+""" 
+Merge Sort Algorithm
 
+Steps:
+Divide: Find the midpoint of list and floor divide into two sublists
+Conquer: Recursively sort the sublists created in previous step
+Combine: Merge the sorted sublists created in previous step
+"""
 def merge_sort(myList):
     if len(myList) <= 1:
         return myList
@@ -10,6 +16,7 @@ def merge_sort(myList):
 
     return merge(left, right)
 
+# Divides list into two
 def split(myList):
     mid = len(myList)//2
     left = myList[:mid]
@@ -17,6 +24,7 @@ def split(myList):
     
     return left, right
 
+# Merging left and right portions and comparing elements
 def merge(left, right):
     l = []
     i = 0
@@ -40,6 +48,7 @@ def merge(left, right):
 
     return l
 
+# Verify sorting using iteration
 def verify(myList):
     if len(myList) <= 1:
         return True
@@ -50,10 +59,15 @@ def verify(myList):
         f = myList[i]
     return True
         
-
+def recur_verify(myList):
+    if len(myList) <= 1:
+        return True
+    return myList[0] <= myList[1] and recur_verify(myList[1:])
 
 yulyList = [9, 19, 63, 88, 19, 65, 59, 8, 12, 11]
 temp = merge_sort(yulyList)
 
 print(verify(yulyList))
 print(verify(temp))
+print(recur_verify(temp))
+print(temp)
